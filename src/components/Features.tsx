@@ -9,6 +9,7 @@ import {
   Zap
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -16,46 +17,48 @@ const features = [
     title: "Mock Case Interviews",
     description: "Practice with matched partners and get real-time feedback on your performance.",
     color: "text-red-800",
-    url: "https://lovable.dev/projects/af6d3da6-d644-4f83-bfe6-d345b8eb030c"
+    route: "/mock-case-interviews"
   },
   {
     icon: Brain,
     title: "AI Case Deck Evaluator",
     description: "Upload your decks and get instant AI-powered feedback on structure and logic.",
     color: "text-red-800",
-    url: "https://lovable.dev/projects/9743a41c-9e80-4ae0-a1ba-281231bc3874"
+    route: "/case-ace-pilot-04"
   },
   {
     icon: FileText,
     title: "Curated Resource Bank",
     description: "Access frameworks, past winning decks, and cheat sheets from top competitions.",
     color: "text-red-800",
-    url: "https://preview--casebook-crafted-web.lovable.app/#"
+    route: "/resource-bank"
   },
   {
     icon: Calendar,
     title: "Competition Calendar",
     description: "Never miss a deadline with our comprehensive corporate case competition tracker.",
     color: "text-red-800",
-    url: "https://preview--calendar-consultory.lovable.app/"
+    route: "/competition-calendar"
   },
   {
     icon: TrendingUp,
     title: "Trending Competitions",
     description: "Top 20 trending case competitions on Unstop, updated in real-time.",
     color: "text-red-800",
-    url: "https://preview--trendace-dash.lovable.app/"
+    route: "/trending-competitions"
   },
   {
     icon: MessageSquare,
     title: "Community Forum",
     description: "Connect with fellow case competitors, share insights, and collaborate on solutions.",
     color: "text-red-800",
-    url: "https://preview--crimson-talk-hive.lovable.app/"
+    route: "/community-forum"
   }
 ];
 
 const Features = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-24 bg-gradient-subtle">
       <div className="container mx-auto px-6">
@@ -84,7 +87,7 @@ const Features = () => {
             const Icon = feature.icon;
 
             const handleCardClick = () => {
-              window.open(feature.url, '_blank', 'noopener,noreferrer');
+              navigate(feature.route);
             };
 
             return (
