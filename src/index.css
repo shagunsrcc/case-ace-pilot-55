@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Case Competition Platform Design System */
+
+@layer base {
+  :root {
+    /* Custom Dark Palette */
+    --background: 240 20% 1%;
+    --foreground: 86 93% 84%;
+
+    --card: 135 10% 25%;
+    --card-foreground: 86 93% 84%;
+
+    --popover: 135 10% 25%;
+    --popover-foreground: 86 93% 84%;
+
+    /* Primary Brand Colors - Custom Red */
+    --primary: 2 100% 20%;
+    --primary-foreground: 86 93% 84%;
+    --primary-light: 2 100% 30%;
+    --primary-dark: 2 100% 15%;
+
+    /* Secondary - Green Accent */
+    --secondary: 86 93% 84%;
+    --secondary-foreground: 240 20% 1%;
+    --secondary-light: 86 93% 90%;
+
+    /* Muted Tones - Custom Purple */
+    --muted: 270 5% 24%;
+    --muted-foreground: 86 93% 84%;
+
+    /* Accent Colors */
+    --accent: 135 10% 25%;
+    --accent-foreground: 86 93% 84%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 86 93% 84%;
+
+    --border: 270 5% 24%;
+    --input: 270 5% 24%;
+    --ring: 2 100% 20%;
+
+    /* Gradients - Custom Dark Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(2 100% 20%) 0%, hsl(86 93% 84%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(86 93% 84%) 0%, hsl(135 10% 25%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(240 20% 1%) 0%, hsl(135 10% 25%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(240 20% 1%) 0%, hsl(135 10% 25%) 50%, hsl(270 5% 24%) 100%);
+    
+    /* Shadows - Enhanced for custom dark theme */
+    --shadow-soft: 0 2px 40px -4px hsl(2 100% 20% / 0.2);
+    --shadow-medium: 0 8px 30px -6px hsl(2 100% 20% / 0.3);
+    --shadow-strong: 0 20px 50px -12px hsl(2 100% 20% / 0.4);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Custom Dark Theme */
+    --sidebar-background: 135 10% 25%;
+    --sidebar-foreground: 86 93% 84%;
+    --sidebar-primary: 2 100% 20%;
+    --sidebar-primary-foreground: 86 93% 84%;
+    --sidebar-accent: 270 5% 24%;
+    --sidebar-accent-foreground: 86 93% 84%;
+    --sidebar-border: 270 5% 24%;
+    --sidebar-ring: 2 100% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+  }
+}
