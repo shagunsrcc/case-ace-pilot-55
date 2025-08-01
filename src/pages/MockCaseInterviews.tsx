@@ -13,46 +13,22 @@ const MockCaseInterviews = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
-      <div className="container mx-auto px-6 py-8">
-        <div className="mb-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Button>
-          
-          <h1 className="text-3xl font-bold mb-2">Mock Case Interviews</h1>
-          <p className="text-muted-foreground">
-            Practice with matched partners and get real-time feedback on your performance
-          </p>
-        </div>
-
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              Practice Platform
-              <ExternalLink className="w-4 h-4" />
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="w-full h-[600px] border rounded-lg overflow-hidden">
-              <iframe
-                src="https://lovable.dev/projects/af6d3da6-d644-4f83-bfe6-d345b8eb030c"
-                width="100%"
-                height="100%"
-                className="border-0"
-                title="Mock Case Interviews Platform"
-                allow="fullscreen"
-              />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+    <>
+      <Button 
+        onClick={() => navigate('/')}
+        className="fixed top-4 left-4 z-40 bg-white text-black px-4 py-2 rounded shadow-lg hover:bg-gray-200 transition"
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back to Home
+      </Button>
+      
+      <iframe
+        src="https://lovable.dev/projects/af6d3da6-d644-4f83-bfe6-d345b8eb030c"
+        className="w-full h-screen fixed top-0 left-0 z-0 border-0"
+        title="Mock Case Interviews Platform"
+        allow="fullscreen"
+      />
+    </>
   );
 };
 

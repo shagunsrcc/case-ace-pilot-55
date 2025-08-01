@@ -13,46 +13,22 @@ const TrendingCompetitions = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
-      <div className="container mx-auto px-6 py-8">
-        <div className="mb-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Button>
-          
-          <h1 className="text-3xl font-bold mb-2">Trending Competitions</h1>
-          <p className="text-muted-foreground">
-            Top 20 trending case competitions on Unstop, updated in real-time
-          </p>
-        </div>
-
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              Trending Dashboard
-              <ExternalLink className="w-4 h-4" />
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="w-full h-[600px] border rounded-lg overflow-hidden">
-              <iframe
-                src="https://preview--trendace-dash.lovable.app/"
-                width="100%"
-                height="100%"
-                className="border-0"
-                title="Trending Competitions Platform"
-                allow="fullscreen"
-              />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+    <>
+      <Button 
+        onClick={() => navigate('/')}
+        className="fixed top-4 left-4 z-40 bg-white text-black px-4 py-2 rounded shadow-lg hover:bg-gray-200 transition"
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back to Home
+      </Button>
+      
+      <iframe
+        src="https://preview--trendace-dash.lovable.app/"
+        className="w-full h-screen fixed top-0 left-0 z-0 border-0"
+        title="Trending Competitions Platform"
+        allow="fullscreen"
+      />
+    </>
   );
 };
 
