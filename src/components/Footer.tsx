@@ -1,46 +1,44 @@
 import { Sparkles, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const footerSections = [
   {
     title: "Platform",
     links: [
-      "Mock Interviews",
-      "AI Deck Evaluator", 
-      "Resource Bank",
-      "Competition Calendar"
+      { name: "Mock Interviews", path: "/mock-case-interviews" },
+      { name: "AI Deck Evaluator", path: "/case-ace-pilot" },
+      { name: "Resource Bank", path: "/resource-bank" },
+      { name: "Competition Calendar", path: "/competition-calendar" }
     ]
   },
   {
     title: "Resources",
     links: [
-      "Case Frameworks",
-      "Winning Decks",
-      "Cheat Sheets",
-      "Success Stories"
+      { name: "Trending Competitions", path: "/trending-competitions" }
     ]
   },
   {
     title: "Community",
     links: [
-      "Partner Matching",
-      "Study Groups",
-      "Mentorship",
-      "Events"
-    ]
-  },
-  {
-    title: "Company",
-    links: [
-      "About Us",
-      "Careers",
-      "Contact",
-      "Privacy Policy"
+      { name: "Community Forum", path: "/community-forum" }
     ]
   }
 ];
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleLinkClick = (path: string) => {
+    navigate(path);
+  };
+
+  const handleAuthClick = (isSignUp: boolean) => {
+    navigate('/auth', { state: { isSignUp } });
+  };
+
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-16">
@@ -73,6 +71,27 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
               </Button>
             </div>
+
+            {/* Auth buttons */}
+            {!user && (
+              <div className="flex gap-3 pt-4">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => handleAuthClick(false)}
+                  className="border-background/20 text-background hover:bg-background/10"
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  size="sm"
+                  onClick={() => handleAuthClick(true)}
+                  className="bg-background text-foreground hover:bg-background/90"
+                >
+                  Get Started
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Links */}
@@ -82,12 +101,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a 
-                      href="#" 
-                      className="text-background/80 hover:text-background transition-colors duration-200"
+                    <button 
+                      onClick={() => handleLinkClick(link.path)}
+                      className="text-background/80 hover:text-background transition-colors duration-200 text-left"
                     >
-                      {link}
-                    </a>
+                      {link.name}
+                    </button>
                   </li>
                 ))}
               </ul>
