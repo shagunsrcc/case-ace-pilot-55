@@ -16,10 +16,7 @@ const Hero = () => {
   };
 
   const handleSeeHowItWorks = () => {
-    const featuresSection = document.getElementById('features');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate('/features');
   };
   return (
     <section className="min-h-screen relative overflow-hidden bg-background">
