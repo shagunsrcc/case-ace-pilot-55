@@ -7,7 +7,7 @@ const footerSections = [
   {
     title: "Platform",
     links: [
-      { name: "Mock Interviews", path: "/mock-case-interviews" },
+      { name: "Mock Interviews", path: "https://preview--mock-interview.lovable.app/" },
       { name: "AI Deck Evaluator", path: "/case-ace-pilot" },
       { name: "Resource Bank", path: "/resource-bank" },
       { name: "Competition Calendar", path: "/competition-calendar" }
@@ -22,7 +22,7 @@ const footerSections = [
   {
     title: "Community",
     links: [
-      { name: "Community Forum", path: "/community-forum" }
+      { name: "Community Forum", path: "https://preview--crimson-talk-hive.lovable.app/" }
     ]
   }
 ];
@@ -32,7 +32,11 @@ const Footer = () => {
   const { user } = useAuth();
 
   const handleLinkClick = (path: string) => {
-    navigate(path);
+    if (path.startsWith('http')) {
+      window.open(path, '_blank');
+    } else {
+      navigate(path);
+    }
   };
 
   const handleAuthClick = (isSignUp: boolean) => {

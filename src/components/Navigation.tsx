@@ -16,8 +16,8 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Features", href: "#features" },
-    { name: "Resources", href: "#resources" },
-    { name: "Community", href: "#community" }
+    { name: "Resources", href: "/resource-bank" },
+    { name: "Community", href: "https://preview--crimson-talk-hive.lovable.app/" }
   ];
 
   return (
@@ -35,13 +35,33 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('http') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </a>
+              ) : item.href.startsWith('/') ? (
+                <button
+                  key={item.name}
+                  onClick={() => navigate(item.href)}
+                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </div>
 
@@ -96,14 +116,38 @@ const Navigation = () => {
           <div className="md:hidden border-t border-border/50 py-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith('http') ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : item.href.startsWith('/') ? (
+                  <button
+                    key={item.name}
+                    onClick={() => {
+                      navigate(item.href);
+                      setIsOpen(false);
+                    }}
+                    className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2 text-left"
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
                 {user ? (
