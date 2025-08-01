@@ -1,6 +1,8 @@
 import { ArrowRight, Sparkles, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const benefits = [
   "AI-powered case feedback in seconds",
@@ -10,6 +12,16 @@ const benefits = [
 ];
 
 const CTA = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleGetStarted = () => {
+    if (user) {
+      navigate('/mock-case-interviews');
+    } else {
+      navigate('/auth', { state: { isSignUp: true } });
+    }
+  };
   return (
     <section className="py-24 bg-gradient-subtle relative overflow-hidden">
       {/* Decorative elements */}
@@ -53,22 +65,15 @@ const CTA = () => {
                 ))}
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* CTA Button */}
+              <div className="flex justify-center">
                 <Button 
                   size="lg" 
-                  className="group shadow-medium hover:shadow-strong transition-all duration-300 px-8"
+                  className="group shadow-medium hover:shadow-strong transition-all duration-300 px-12"
+                  onClick={handleGetStarted}
                 >
                   Get started for free
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-primary/20 hover:bg-primary/5 px-8"
-                >
-                  Book a demo
                 </Button>
               </div>
 

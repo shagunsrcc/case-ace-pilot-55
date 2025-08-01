@@ -1,7 +1,23 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleStartWinning = () => {
+    if (user) {
+      navigate('/mock-case-interviews');
+    } else {
+      navigate('/auth', { state: { isSignUp: true } });
+    }
+  };
+
+  const handleSeeHowItWorks = () => {
+    navigate('/features');
+  };
   return (
     <section className="min-h-screen relative overflow-hidden bg-background">
       <div className="container mx-auto px-6 pt-32 pb-20">
@@ -30,12 +46,21 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="group shadow-medium hover:shadow-strong transition-all duration-300">
+              <Button 
+                size="lg" 
+                className="group shadow-medium hover:shadow-strong transition-all duration-300"
+                onClick={handleStartWinning}
+              >
                 Start winning today
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button variant="outline" size="lg" className="border-muted hover:bg-card">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-muted hover:bg-card"
+                onClick={handleSeeHowItWorks}
+              >
                 See how it works
               </Button>
             </div>
