@@ -23,7 +23,7 @@ const MockCaseInterviews = () => {
       </Button>
       
       <iframe
-        src="https://lovable.dev/projects/af6d3da6-d644-4f83-bfe6-d345b8eb030c"
+        src="https://preview--mock-interview.lovable.app/"
         className="w-full h-screen fixed top-0 left-0 z-0 border-0"
         title="Mock Case Interviews Platform"
         allow="fullscreen"

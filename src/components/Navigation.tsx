@@ -14,10 +14,28 @@ const Navigation = () => {
     navigate('/');
   };
 
+  const handleNavClick = (item: { name: string; href: string }) => {
+    if (item.name === "Features") {
+      const featuresElement = document.getElementById('features');
+      if (featuresElement) {
+        featuresElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (item.name === "Community") {
+      navigate('/community-forum');
+    } else if (item.href.startsWith('/')) {
+      navigate(item.href);
+    } else {
+      const element = document.querySelector(item.href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   const navItems = [
     { name: "Features", href: "#features" },
     { name: "Resources", href: "/resource-bank" },
-    { name: "Community", href: "https://preview--crimson-talk-hive.lovable.app/" }
+    { name: "Community", href: "/community-forum" }
   ];
 
   return (
@@ -35,33 +53,13 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              item.href.startsWith('http') ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
-                >
-                  {item.name}
-                </a>
-              ) : item.href.startsWith('/') ? (
-                <button
-                  key={item.name}
-                  onClick={() => navigate(item.href)}
-                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
-                >
-                  {item.name}
-                </button>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
-                >
-                  {item.name}
-                </a>
-              )
+              <button
+                key={item.name}
+                onClick={() => handleNavClick(item)}
+                className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium"
+              >
+                {item.name}
+              </button>
             ))}
           </div>
 
@@ -116,38 +114,16 @@ const Navigation = () => {
           <div className="md:hidden border-t border-border/50 py-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                item.href.startsWith('http') ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ) : item.href.startsWith('/') ? (
-                  <button
-                    key={item.name}
-                    onClick={() => {
-                      navigate(item.href);
-                      setIsOpen(false);
-                    }}
-                    className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2 text-left"
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                )
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    handleNavClick(item);
+                    setIsOpen(false);
+                  }}
+                  className="text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium py-2 text-left"
+                >
+                  {item.name}
+                </button>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
                 {user ? (

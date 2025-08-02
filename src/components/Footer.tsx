@@ -32,7 +32,9 @@ const Footer = () => {
   const { user } = useAuth();
 
   const handleLinkClick = (path: string) => {
-    if (path.startsWith('http')) {
+    if (path === "https://preview--crimson-talk-hive.lovable.app/") {
+      navigate('/community-forum');
+    } else if (path.startsWith('http')) {
       window.open(path, '_blank');
     } else {
       navigate(path);

@@ -16,7 +16,7 @@ const CommunityForum = () => {
     <>
       <Button 
         onClick={() => navigate('/')}
-        className="fixed top-4 left-4 z-40 bg-white text-black px-4 py-2 rounded shadow-lg hover:bg-gray-200 transition"
+        className="fixed top-4 left-4 z-40 bg-background text-foreground px-4 py-2 rounded shadow-lg hover:bg-background/80 transition border border-border"
       >
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to Home
