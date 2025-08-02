@@ -53,25 +53,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Benefits */}
-            <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-8 border-t border-muted/50">
-              <div className="flex items-center gap-3 text-left">
-                <div className="text-primary">✅</div>
-                <span className="text-foreground/80">AI-powered case feedback in seconds</span>
-              </div>
-              <div className="flex items-center gap-3 text-left">
-                <div className="text-primary">✅</div>
-                <span className="text-foreground/80">Partner matching for mock interviews</span>
-              </div>
-              <div className="flex items-center gap-3 text-left">
-                <div className="text-primary">✅</div>
-                <span className="text-foreground/80">Access to a community platform to clarify your doubts</span>
-              </div>
-              <div className="flex items-center gap-3 text-left">
-                <div className="text-primary">✅</div>
-                <span className="text-foreground/80">Real-time competition calendar updates</span>
-              </div>
-            </div>
 
             {/* Metrics Block */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">

@@ -6,8 +6,8 @@ import { useAuth } from "@/hooks/useAuth";
 
 const benefits = [
   "AI-powered case feedback in seconds",
-  "Access to 500+ winning case decks", 
-  "Partner matching for mock interviews",
+  "Access to well curated resources", 
+  "Mock Case Interviews",
   "Real-time competition calendar updates"
 ];
 
