@@ -15,12 +15,6 @@ const Hero = () => {
     }
   };
 
-  const handleSeeHowItWorks = () => {
-    const featuresSection = document.getElementById('features');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   return (
     <section className="min-h-screen relative overflow-hidden bg-background">
       <div className="container mx-auto px-6 pt-32 pb-20">
@@ -48,7 +42,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button 
                 size="lg" 
                 className="group shadow-medium hover:shadow-strong transition-all duration-300"
@@ -56,15 +50,6 @@ const Hero = () => {
               >
                 Start winning today
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-muted hover:bg-card"
-                onClick={handleSeeHowItWorks}
-              >
-                See how it works
               </Button>
             </div>
 

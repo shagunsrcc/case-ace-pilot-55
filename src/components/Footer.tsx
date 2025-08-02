@@ -34,6 +34,8 @@ const Footer = () => {
   const handleLinkClick = (path: string) => {
     if (path === "https://preview--crimson-talk-hive.lovable.app/") {
       navigate('/community-forum');
+    } else if (path === "https://preview--mock-interview.lovable.app/") {
+      navigate('/mock-case-interviews');
     } else if (path.startsWith('http')) {
       window.open(path, '_blank');
     } else {
