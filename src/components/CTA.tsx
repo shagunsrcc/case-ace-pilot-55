@@ -79,16 +79,9 @@ const CTA = () => {
 
               {/* Trust indicators */}
               <div className="pt-8 border-t border-border/50">
-                <p className="text-sm text-muted-foreground mb-4">
-                  Trusted by students from
+                <p className="text-sm text-muted-foreground">
+                  Trusted by students from top-tier institutions
                 </p>
-                <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-muted-foreground">
-                  <span>IIM Ahmedabad</span>
-                  <span>IIT Delhi</span>
-                  <span>SRCC</span>
-                  <span>BITS Pilani</span>
-                  <span>ISB Hyderabad</span>
-                </div>
               </div>
             </div>
           </CardContent>

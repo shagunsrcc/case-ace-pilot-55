@@ -53,19 +53,39 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8 border-t border-muted/50">
+            {/* Benefits */}
+            <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-8 border-t border-muted/50">
+              <div className="flex items-center gap-3 text-left">
+                <div className="text-primary">✅</div>
+                <span className="text-foreground/80">AI-powered case feedback in seconds</span>
+              </div>
+              <div className="flex items-center gap-3 text-left">
+                <div className="text-primary">✅</div>
+                <span className="text-foreground/80">Partner matching for mock interviews</span>
+              </div>
+              <div className="flex items-center gap-3 text-left">
+                <div className="text-primary">✅</div>
+                <span className="text-foreground/80">Access to a community platform to clarify your doubts</span>
+              </div>
+              <div className="flex items-center gap-3 text-left">
+                <div className="text-primary">✅</div>
+                <span className="text-foreground/80">Real-time competition calendar updates</span>
+              </div>
+            </div>
+
+            {/* Metrics Block */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">10k+</div>
-                <div className="text-sm text-muted-foreground">Students prepping</div>
+                <div className="text-3xl font-bold text-secondary">8</div>
+                <div className="text-sm text-muted-foreground">high quality tools</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">500+</div>
-                <div className="text-sm text-muted-foreground">Competitions won</div>
+                <div className="text-3xl font-bold text-secondary">50+</div>
+                <div className="text-sm text-muted-foreground">hours saved</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">95%</div>
-                <div className="text-sm text-muted-foreground">Success rate</div>
+                <div className="text-3xl font-bold text-secondary">100%</div>
+                <div className="text-sm text-muted-foreground">free, always</div>
               </div>
             </div>
           </div>
