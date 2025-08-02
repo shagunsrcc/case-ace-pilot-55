@@ -60,7 +60,7 @@ const Features = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 bg-gradient-subtle">
+    <section id="features" className="py-24 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary mb-6">
