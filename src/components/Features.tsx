@@ -29,21 +29,21 @@ const features = [
   {
     icon: FileText,
     title: "Curated Resource Bank",
-    description: "Access frameworks, past winning decks, and cheat sheets from top competitions.",
+    description: "A growing library of handpicked resources to help you stay ahead – from frameworks to winning decks.",
     color: "text-red-800",
     route: "/resource-bank"
   },
   {
     icon: Calendar,
-    title: "Competition Calendar",
+    title: "Corporate Case Comp Calendar",
     description: "Never miss a deadline with our comprehensive corporate case competition tracker.",
     color: "text-red-800",
     route: "/competition-calendar"
   },
   {
     icon: TrendingUp,
-    title: "Trending Competitions",
-    description: "Top 20 trending case competitions on Unstop, updated in real-time.",
+    title: "Latest Casecomps",
+    description: "Stay updated with the most current case competitions and opportunities available.",
     color: "text-red-800",
     route: "/trending-competitions"
   },
@@ -76,7 +76,7 @@ const Features = () => {
             performance
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From mock interviews to AI feedback, we've built the complete toolkit
             that transforms ambitious students into case competition winners.
           </p>

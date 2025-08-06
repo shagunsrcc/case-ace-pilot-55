@@ -38,7 +38,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                The AI-powered co-pilot for case competitions. Practice, prepare, and perform with the structure and edge that top-tier students trust.
+                Your all-in-one case prep platform, designed for students who want an edge. From mock interviews to deck reviews, get the structure and support that top teams rely on.
               </p>
             </div>
 
@@ -46,7 +46,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="group shadow-medium hover:shadow-strong transition-all duration-300"
-                onClick={handleStartWinning}
+                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Start winning today
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -55,19 +55,10 @@ const Hero = () => {
 
 
             {/* Metrics Block */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">8</div>
-                <div className="text-sm text-muted-foreground">high quality tools</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">50+</div>
-                <div className="text-sm text-muted-foreground">hours saved</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">100%</div>
-                <div className="text-sm text-muted-foreground">free, always</div>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+              <span className="text-lg font-semibold text-secondary">6 High Quality Tools</span>
+              <span className="text-lg font-semibold text-secondary">50+ Hours Saved</span>
+              <span className="text-lg font-semibold text-secondary">100% Free, Always</span>
             </div>
           </div>
         </div>

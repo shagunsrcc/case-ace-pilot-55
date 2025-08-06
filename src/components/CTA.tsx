@@ -67,14 +67,14 @@ const CTA = () => {
 
               {/* CTA Button */}
               <div className="flex justify-center">
-                <Button 
-                  size="lg" 
-                  className="group shadow-medium hover:shadow-strong transition-all duration-300 px-12"
-                  onClick={handleGetStarted}
-                >
-                  Get started for free
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  <Button 
+                    size="lg" 
+                    className="group shadow-medium hover:shadow-strong transition-all duration-300 px-12"
+                    onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Get started for free
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
               </div>
 
               {/* Trust indicators */}
