@@ -115,7 +115,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          {footerSections.map((section, index) => (
+          {footerSections.filter(section => section.title !== "About Us").map((section, index) => (
             <div key={index} className="space-y-4">
               <h3 className="font-semibold text-lg">{section.title}</h3>
               <ul className="space-y-3">
@@ -135,14 +135,51 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-background/20 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="text-center sm:text-left">
-            <p className="text-background/60 text-sm">
-              © 2025 Consultory. All rights reserved.
-            </p>
-            <p className="text-background/80 text-sm font-medium mt-1">
-              Built by students, for students.
-            </p>
+        <div className="border-t border-background/20 mt-12 pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-6">
+            <div className="text-center sm:text-left">
+              <p className="text-background/60 text-sm">
+                © 2025 Consultory. All rights reserved.
+              </p>
+              <p className="text-background/80 text-sm font-medium mt-1">
+                Built by students, for students.
+              </p>
+            </div>
+            
+            {/* About Us */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-lg">About Us</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div>
+                    <p className="text-background/80 text-sm font-medium">Anushka Sharma</p>
+                    <p className="text-background/60 text-xs">Co-founder & Product Lead</p>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="w-8 h-8 p-0 hover:bg-background/10"
+                    onClick={() => window.open('https://www.linkedin.com/in/anushka-sharma-009a99327/', '_blank')}
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </Button>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div>
+                    <p className="text-background/80 text-sm font-medium">Shagun Chaubey</p>
+                    <p className="text-background/60 text-xs">Co-founder & Strategy Lead</p>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="w-8 h-8 p-0 hover:bg-background/10"
+                    onClick={() => window.open('#', '_blank')}
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

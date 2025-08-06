@@ -15,7 +15,7 @@ const features = [
   {
     icon: Users2,
     title: "Mock Case Interviews",
-    description: "Prepare for case interviews with structured, lifelike mock sessions, and get instant, tailored feedback designed to help you improve every time.",
+    description: "Practice with structured mock sessions and get instant, tailored feedback to improve your performance.",
     color: "text-red-800",
     route: "/mock-case-interviews"
   },
