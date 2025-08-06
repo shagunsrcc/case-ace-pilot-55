@@ -15,7 +15,7 @@ const features = [
   {
     icon: Users2,
     title: "Mock Case Interviews",
-    description: "Practice with matched partners and get real-time feedback on your performance.",
+    description: "Prepare for case interviews with structured, lifelike mock sessions, and get instant, tailored feedback designed to help you improve every time.",
     color: "text-red-800",
     route: "/mock-case-interviews"
   },
@@ -63,7 +63,7 @@ const Features = () => {
     <section id="features" className="py-24 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary mb-6">
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-foreground mb-6">
             <Zap className="w-4 h-4" />
             Everything you need to dominate
           </div>

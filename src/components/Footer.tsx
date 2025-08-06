@@ -1,4 +1,4 @@
-import { Sparkles, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Sparkles, Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
@@ -14,15 +14,16 @@ const footerSections = [
     ]
   },
   {
-    title: "Resources",
+    title: "About Us",
     links: [
-      { name: "Trending Competitions", path: "/trending-competitions" }
+      { name: "Anushka Sharma", path: "https://www.linkedin.com/in/anushka-sharma-009a99327/" },
+      { name: "Shagun Chaubey", path: "#" }
     ]
   },
   {
-    title: "Community",
+    title: "Contact Us",
     links: [
-      { name: "Community Forum", path: "https://preview--crimson-talk-hive.lovable.app/" }
+      { name: "team.consultory@gmail.com", path: "mailto:team.consultory@gmail.com" }
     ]
   }
 ];
@@ -61,21 +62,32 @@ const Footer = () => {
             </div>
             
             <p className="text-background/80 max-w-md leading-relaxed">
-              The AI-powered platform helping ambitious students dominate case competitions 
-              with confidence. Built for the next generation of strategic thinkers.
+              Built for ambitious students who think ahead. Practice, prep and present with structure and smart tools that work as hard as you do.
             </p>
             
             <div className="flex gap-4">
-              <Button variant="ghost" size="sm" className="w-10 h-10 p-0 hover:bg-background/10">
-                <Twitter className="w-4 h-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="w-10 h-10 p-0 hover:bg-background/10">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-10 h-10 p-0 hover:bg-background/10"
+                onClick={() => window.open('https://www.instagram.com/consultory2025/', '_blank')}
+              >
                 <Instagram className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="w-10 h-10 p-0 hover:bg-background/10">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-10 h-10 p-0 hover:bg-background/10"
+                onClick={() => window.open('https://www.linkedin.com/in/anushka-sharma-009a99327/', '_blank')}
+              >
                 <Linkedin className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="w-10 h-10 p-0 hover:bg-background/10">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-10 h-10 p-0 hover:bg-background/10"
+                onClick={() => window.open('mailto:team.consultory@gmail.com', '_blank')}
+              >
                 <Mail className="w-4 h-4" />
               </Button>
             </div>
@@ -124,20 +136,13 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-background/20 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-background/60 text-sm">
-            © 2024 Consultory. All rights reserved.
-          </p>
-          
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-background/60 hover:text-background transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-background/60 hover:text-background transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-background/60 hover:text-background transition-colors">
-              Cookie Policy
-            </a>
+          <div className="text-center sm:text-left">
+            <p className="text-background/60 text-sm">
+              © 2025 Consultory. All rights reserved.
+            </p>
+            <p className="text-background/80 text-sm font-medium mt-1">
+              Built by students, for students.
+            </p>
           </div>
         </div>
       </div>

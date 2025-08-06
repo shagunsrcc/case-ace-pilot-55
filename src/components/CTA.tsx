@@ -33,7 +33,7 @@ const CTA = () => {
           <CardContent className="p-12 text-center">
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-primary">
+                <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-medium text-foreground">
                   <Sparkles className="w-4 h-4" />
                   Ready to dominate your next case competition?
                 </div>
