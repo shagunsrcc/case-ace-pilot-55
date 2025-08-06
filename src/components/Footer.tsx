@@ -51,7 +51,7 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-2">
@@ -149,11 +149,11 @@ const Footer = () => {
             {/* About Us */}
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">About Us</h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
+              <div className="flex gap-8">
+                <div className="flex items-center gap-2">
                   <div>
                     <p className="text-background/80 text-sm font-medium">Anushka Sharma</p>
-                    <p className="text-background/60 text-xs">Co-founder & Product Lead</p>
+                    <p className="text-background/60 text-xs">Co-founder, Consultory</p>
                   </div>
                   <Button 
                     variant="ghost" 
@@ -164,10 +164,10 @@ const Footer = () => {
                     <Linkedin className="w-4 h-4" />
                   </Button>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <div>
                     <p className="text-background/80 text-sm font-medium">Shagun Chaubey</p>
-                    <p className="text-background/60 text-xs">Co-founder & Strategy Lead</p>
+                    <p className="text-background/60 text-xs">Co-founder, Consultory</p>
                   </div>
                   <Button 
                     variant="ghost" 
