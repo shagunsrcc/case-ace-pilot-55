@@ -149,33 +149,33 @@ const Footer = () => {
             {/* About Us */}
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">About Us</h3>
-              <div className="flex items-center gap-8">
+              <div className="flex gap-8">
                 <div className="flex items-center gap-2">
-                  <div className="text-center">
+                  <div>
                     <p className="text-background/80 text-sm font-medium">Anushka Sharma</p>
-                    <p className="text-background/60 text-xs whitespace-nowrap">Co-founder, Consultory</p>
+                    <p className="text-background/60 text-xs">Co-founder, Consultory</p>
                   </div>
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className="w-6 h-6 p-0 hover:bg-background/10"
+                    className="w-8 h-8 p-0 hover:bg-background/10"
                     onClick={() => window.open('https://www.linkedin.com/in/anushka-sharma-009a99327/', '_blank')}
                   >
-                    <Linkedin className="w-3 h-3" />
+                    <Linkedin className="w-4 h-4" />
                   </Button>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="text-center">
+                  <div>
                     <p className="text-background/80 text-sm font-medium">Shagun Chaubey</p>
-                    <p className="text-background/60 text-xs whitespace-nowrap">Co-founder, Consultory</p>
+                    <p className="text-background/60 text-xs">Co-founder, Consultory</p>
                   </div>
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className="w-6 h-6 p-0 hover:bg-background/10"
+                    className="w-8 h-8 p-0 hover:bg-background/10"
                     onClick={() => window.open('#', '_blank')}
                   >
-                    <Linkedin className="w-3 h-3" />
+                    <Linkedin className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
