@@ -12,6 +12,11 @@ import { Loader2, AlertCircle } from 'lucide-react';
 const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [collegeName, setCollegeName] = useState('');
+  const [degree, setDegree] = useState('');
+  const [year, setYear] = useState('');
+  const [careerInterests, setCareerInterests] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -48,7 +53,15 @@ const Auth = () => {
     setError('');
     setMessage('');
     
-    const { error } = await signUp(email, password);
+    const { error } = await signUp({
+      email,
+      password,
+      displayName,
+      collegeName,
+      degree,
+      year,
+      careerInterests,
+    });
     
     if (error) {
       setError(error.message);
@@ -77,7 +90,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-lg">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">Welcome to Consultory</CardTitle>
           <CardDescription>
@@ -165,6 +178,31 @@ const Auth = () => {
             
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-name">Full Name</Label>
+                    <Input
+                      id="signup-name"
+                      type="text"
+                      value={displayName}
+                      onChange={(e) => setDisplayName(e.target.value)}
+                      required
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-college">College Name</Label>
+                    <Input
+                      id="signup-college"
+                      type="text"
+                      value={collegeName}
+                      onChange={(e) => setCollegeName(e.target.value)}
+                      required
+                      placeholder="Your college/university"
+                    />
+                  </div>
+                </div>
+                
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
                   <Input
@@ -176,6 +214,44 @@ const Auth = () => {
                     placeholder="Enter your email"
                   />
                 </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-degree">Degree</Label>
+                    <Input
+                      id="signup-degree"
+                      type="text"
+                      value={degree}
+                      onChange={(e) => setDegree(e.target.value)}
+                      required
+                      placeholder="e.g., MBA, BBA, Engineering"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="signup-year">Year</Label>
+                    <Input
+                      id="signup-year"
+                      type="text"
+                      value={year}
+                      onChange={(e) => setYear(e.target.value)}
+                      required
+                      placeholder="e.g., 2024, Final Year"
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="signup-interests">Career Interests</Label>
+                  <Input
+                    id="signup-interests"
+                    type="text"
+                    value={careerInterests}
+                    onChange={(e) => setCareerInterests(e.target.value)}
+                    required
+                    placeholder="e.g., Consulting, Finance, Tech"
+                  />
+                </div>
+                
                 <div className="space-y-2">
                   <Label htmlFor="signup-password">Password</Label>
                   <Input
@@ -188,9 +264,10 @@ const Auth = () => {
                     minLength={6}
                   />
                 </div>
+                
                 <Button type="submit" className="w-full" disabled={loading}>
                   {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-                  Sign Up
+                  Create Account
                 </Button>
               </form>
             </TabsContent>

@@ -2,11 +2,21 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
+interface SignUpData {
+  email: string;
+  password: string;
+  displayName: string;
+  collegeName: string;
+  degree: string;
+  year: string;
+  careerInterests: string;
+}
+
 interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signUp: (email: string, password: string) => Promise<{ error: any }>;
+  signUp: (signupData: SignUpData) => Promise<{ error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: any }>;
@@ -51,16 +61,43 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signUp = async (email: string, password: string) => {
+  const signUp = async (signupData: SignUpData) => {
     const redirectUrl = `${window.location.origin}/`;
     
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
+    const { data, error } = await supabase.auth.signUp({
+      email: signupData.email,
+      password: signupData.password,
       options: {
-        emailRedirectTo: redirectUrl
+        emailRedirectTo: redirectUrl,
+        data: {
+          display_name: signupData.displayName,
+          college_name: signupData.collegeName,
+          degree: signupData.degree,
+          year: signupData.year,
+          career_interests: signupData.careerInterests,
+        }
       }
     });
+
+    // If signup successful and user is created, create profile
+    if (!error && data.user) {
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .insert({
+          user_id: data.user.id,
+          email: signupData.email,
+          display_name: signupData.displayName,
+          college_name: signupData.collegeName,
+          degree: signupData.degree,
+          year: signupData.year,
+          career_interests: signupData.careerInterests,
+        });
+      
+      if (profileError) {
+        console.error('Error creating profile:', profileError);
+      }
+    }
+    
     return { error };
   };
 
