@@ -82,7 +82,7 @@ const Navigation = () => {
             ) : (
               <>
                 <Button 
-                  variant="ghost" 
+                  variant="outline" 
                   className="font-medium"
                   onClick={() => navigate('/auth')}
                 >
@@ -143,7 +143,7 @@ const Navigation = () => {
                 ) : (
                   <>
                     <Button 
-                      variant="ghost" 
+                      variant="outline" 
                       className="justify-start"
                       onClick={() => navigate('/auth')}
                     >
