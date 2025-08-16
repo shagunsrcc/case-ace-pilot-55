@@ -23,7 +23,7 @@ const CommunityForum = () => {
       </Button>
       
       <iframe
-        src="https://preview--crimson-talk-hive.lovable.app/"
+        src="https://preview--consultory-insight-hub.lovable.app/"
         className="w-full h-screen fixed top-0 left-0 z-0 border-0"
         title="Community Forum Platform"
         allow="fullscreen"
