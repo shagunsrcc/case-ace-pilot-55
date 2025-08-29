@@ -14,16 +14,16 @@ const TrendingCompetitions = () => {
 
   return (
     <>
-      <Button 
+      <Button
         onClick={() => navigate('/')}
         className="fixed top-4 left-4 z-40 bg-white text-black px-4 py-2 rounded shadow-lg hover:bg-gray-200 transition"
       >
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to Home
       </Button>
-      
+
       <iframe
-        src="https://preview--trendace-dash.lovable.app/"
+        src="https://trending-competitions.netlify.app/"
         className="w-full h-screen fixed top-0 left-0 z-0 border-0"
         title="Trending Competitions Platform"
         allow="fullscreen"

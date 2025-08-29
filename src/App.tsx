@@ -14,6 +14,7 @@ import CompetitionCalendar from "./pages/CompetitionCalendar";
 import TrendingCompetitions from "./pages/TrendingCompetitions";
 import CommunityForum from "./pages/CommunityForum";
 import NotFound from "./pages/NotFound";
+import ResetPasswordPage from "./pages/resetPassword";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
             } />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
