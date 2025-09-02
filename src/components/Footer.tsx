@@ -18,7 +18,8 @@ const footerSections = [
     title: "About Us",
     links: [
       { name: "Anushka Sharma", path: "https://www.linkedin.com/in/anushka-sharma-009a99327/" },
-      { name: "Shagun Chaubey", path: "https://www.linkedin.com/in/shagun-chaubey/" }
+      { name: "Shagun Chaubey", path: "https://www.linkedin.com/in/shagun-chaubey/" },
+      { name: "Shivansh Varshney", path: "https://www.linkedin.com/in/shivansh-varshney/" }
     ]
   },
   {
@@ -183,6 +184,20 @@ const Footer = () => {
                     size="sm"
                     className="w-8 h-8 p-0 hover:bg-background/10"
                     onClick={() => window.open('https://www.linkedin.com/in/shagun-chaubey/', '_blank')}
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </Button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <p className="text-background/80 text-sm font-medium">Shivansh Varshney</p>
+                    <p className="text-background/60 text-xs">Co-founder, Consultory</p>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-8 h-8 p-0 hover:bg-background/10"
+                    onClick={() => window.open('https://www.linkedin.com/in/shivansh-varshney/', '_blank')}
                   >
                     <Linkedin className="w-4 h-4" />
                   </Button>
