@@ -2,22 +2,24 @@ import { Sparkles, Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
 
 const footerSections = [
   {
     title: "Platform",
     links: [
-      { name: "Mock Interviews", path: "https://preview--mock-interview.lovable.app/" },
-      { name: "AI Deck Evaluator", path: "/case-ace-pilot" },
+      { name: "Mock Interviews", path: "https://share.google/H4g96lVD29YRs8ch2" },
       { name: "Resource Bank", path: "/resource-bank" },
-      { name: "Competition Calendar", path: "/competition-calendar" }
+      { name: "Competition Calendar", path: "/competition-calendar" },
+      { name: "Resume Scoring", path: "https://share.google/iHAkudeksTEC8Awvf" },
     ]
   },
   {
     title: "About Us",
     links: [
       { name: "Anushka Sharma", path: "https://www.linkedin.com/in/anushka-sharma-009a99327/" },
-      { name: "Shagun Chaubey", path: "#" }
+      { name: "Shagun Chaubey", path: "https://www.linkedin.com/in/shagun-chaubey/" },
+      { name: "Shivansh Varshney", path: "https://www.linkedin.com/in/shivansh-varshney/" }
     ]
   },
   {
@@ -32,15 +34,23 @@ const Footer = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const handleLinkClick = (path: string) => {
+  const handleLinkClick = async (path: string) => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
     if (path === "https://preview--crimson-talk-hive.lovable.app/") {
       navigate('/community-forum');
     } else if (path === "https://preview--mock-interview.lovable.app/") {
       navigate('/mock-case-interviews');
-    } else if (path.startsWith('http')) {
-      window.open(path, '_blank');
+    } else if (path.startsWith("https")) {
+      if (session) {
+        window.open(path, "_blank")
+      } else {
+        navigate("/auth");
+      }
     } else {
-      navigate(path);
+      window.open(path, "_self");
     }
   };
 
@@ -60,33 +70,33 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">Consultory</span>
             </div>
-            
+
             <p className="text-background/80 max-w-md leading-relaxed">
               Built for ambitious students who think ahead. Practice, prep and present with structure and smart tools that work as hard as you do.
             </p>
-            
+
             <div className="flex gap-4">
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="w-10 h-10 p-0 hover:bg-background/10"
                 onClick={() => window.open('https://www.instagram.com/consultory2025/', '_blank')}
               >
                 <Instagram className="w-4 h-4" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="w-10 h-10 p-0 hover:bg-background/10"
-                onClick={() => window.open('https://www.linkedin.com/in/anushka-sharma-009a99327/', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/company/consultory-co/about/', '_blank')}
               >
                 <Linkedin className="w-4 h-4" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="w-10 h-10 p-0 hover:bg-background/10"
-                onClick={() => window.open('mailto:team.consultory@gmail.com', '_blank')}
+                onClick={() => window.open('mailto:team.consultory@gmail.com', '_self')}
               >
                 <Mail className="w-4 h-4" />
               </Button>
@@ -95,15 +105,15 @@ const Footer = () => {
             {/* Auth buttons */}
             {!user && (
               <div className="flex gap-3 pt-4">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   onClick={() => handleAuthClick(false)}
-                  className="border-background/20 text-background hover:bg-background/10"
+                  className="border-background/20 text-foreground hover:bg-background/10"
                 >
                   Sign In
                 </Button>
-                <Button 
+                <Button
                   size="sm"
                   onClick={() => handleAuthClick(true)}
                   className="bg-background text-foreground hover:bg-background/90"
@@ -121,7 +131,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <button 
+                    <button
                       onClick={() => handleLinkClick(link.path)}
                       className="text-background/80 hover:text-background transition-colors duration-200 text-left"
                     >
@@ -145,7 +155,7 @@ const Footer = () => {
                 Built by students, for students.
               </p>
             </div>
-            
+
             {/* About Us */}
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">About Us</h3>
@@ -155,9 +165,9 @@ const Footer = () => {
                     <p className="text-background/80 text-sm font-medium">Anushka Sharma</p>
                     <p className="text-background/60 text-xs">Co-founder, Consultory</p>
                   </div>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="w-8 h-8 p-0 hover:bg-background/10"
                     onClick={() => window.open('https://www.linkedin.com/in/anushka-sharma-009a99327/', '_blank')}
                   >
@@ -169,11 +179,25 @@ const Footer = () => {
                     <p className="text-background/80 text-sm font-medium">Shagun Chaubey</p>
                     <p className="text-background/60 text-xs">Co-founder, Consultory</p>
                   </div>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="w-8 h-8 p-0 hover:bg-background/10"
-                    onClick={() => window.open('#', '_blank')}
+                    onClick={() => window.open('https://www.linkedin.com/in/shagun-chaubey/', '_blank')}
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </Button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div>
+                    <p className="text-background/80 text-sm font-medium">Shivansh Varshney</p>
+                    <p className="text-background/60 text-xs">Co-founder, Consultory</p>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-8 h-8 p-0 hover:bg-background/10"
+                    onClick={() => window.open('https://www.linkedin.com/in/shivansh-varshney/', '_blank')}
                   >
                     <Linkedin className="w-4 h-4" />
                   </Button>

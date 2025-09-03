@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 const features = [
   {
@@ -17,35 +18,35 @@ const features = [
     title: "Mock Case Interviews",
     description: "Practice with structured mock sessions and get instant, tailored feedback to improve your performance.",
     color: "text-red-800",
-    route: "/mock-case-interviews"
-  },
-  {
-    icon: Brain,
-    title: "AI Case Deck Evaluator",
-    description: "Upload your decks and get instant AI-powered feedback on structure and logic.",
-    color: "text-red-800",
-    route: "/case-ace-pilot-04"
+    route: "https://share.google/H4g96lVD29YRs8ch2"
   },
   {
     icon: FileText,
-    title: "Curated Resource Bank",
+    title: "Resource Bank",
     description: "A growing library of handpicked resources to help you stay ahead – from frameworks to winning decks.",
     color: "text-red-800",
     route: "/resource-bank"
   },
   {
     icon: Calendar,
-    title: "Corporate Case Comp Calendar",
+    title: "Case Comp Calendar",
     description: "Never miss a deadline with our comprehensive corporate case competition tracker.",
     color: "text-red-800",
     route: "/competition-calendar"
   },
   {
     icon: TrendingUp,
-    title: "Latest Casecomps",
+    title: "Top Casecomps",
     description: "Stay updated with the most current case competitions and opportunities available.",
     color: "text-red-800",
     route: "/trending-competitions"
+  },
+  {
+    icon: Brain,
+    title: "Resume Scoring",
+    description: "Upload your resume to get it scored and get instant feedback for improvements.",
+    color: "text-red-800",
+    route: "https://share.google/iHAkudeksTEC8Awvf"
   },
   {
     icon: MessageSquare,
@@ -86,8 +87,23 @@ const Features = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
-            const handleCardClick = () => {
-              navigate(feature.route);
+            const handleCardClick = async () => {
+              const {
+                data: { session },
+              } = await supabase.auth.getSession();
+
+              if (feature.route.startsWith("https")) {
+                if (session) {
+                  // user is logged in → go to external link
+                  window.open(feature.route, "_self");
+                } else {
+                  // not logged in → send to sign-in page
+                  navigate("/auth"); // <-- your sign-in route
+                }
+              } else {
+                // internal routes (like /dashboard, /profile, etc.)
+                navigate(feature.route);
+              }
             };
 
             return (
